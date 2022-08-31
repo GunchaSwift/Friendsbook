@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FriendsbookApp: App {
+    @StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
